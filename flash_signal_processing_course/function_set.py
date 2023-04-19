@@ -28,7 +28,7 @@ def fft_spec(sig, fs):
     if aux != 0:
         sig = np.append(sig, [0])
     f_sig = (1 / sig.shape[0]) * np.fft.fft(sig)  # apply the normalization factor
-    p_sig = np.absolute(f_sig)[0: sig.shape[0] / 2 + 1]
+    p_sig = np.absolute(f_sig)[0: int(sig.shape[0] / 2 + 1)]
     l_f = p_sig.shape[0]
     p_sig[1:] = 2 * p_sig[1:]
     f_hz = (fs / sig.shape[0]) * np.array(range(l_f))
